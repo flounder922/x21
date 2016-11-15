@@ -1,4 +1,3 @@
-
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -26,10 +25,18 @@ function addItem()  {
     var input = document.getElementById("newItem").value;
     var list = document.getElementById("listDisplay");
     var item = document.createElement("li");
+    var btnClose = document.createElement("button");
+    var iconClose = document.createElement("span");
+    btnClose.classList.add("btn");
+    btnClose.classList.add("btn-danger");
+    btnClose.classList.add("btn-xs");
+    iconClose.classList.add("glyphicon");
+    iconClose.classList.add("glyphicon-remove");
     var itemName = document.createTextNode(input);
 
     item.appendChild(itemName);
+    item.appendChild(btnClose);
     list.appendChild(item);
     document.getElementById("newItem").value = "";
-    
+
 }
