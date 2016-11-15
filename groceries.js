@@ -22,6 +22,7 @@ function getCookie(cname) {
 }
 
 function addItem()  {
+
     var input = document.getElementById("newItem").value;
     var list = document.getElementById("listDisplay");
     var item = document.createElement("li");
@@ -30,13 +31,22 @@ function addItem()  {
     btnClose.classList.add("btn");
     btnClose.classList.add("btn-danger");
     btnClose.classList.add("btn-xs");
-    iconClose.classList.add("glyphicon");
-    iconClose.classList.add("glyphicon-remove");
+    btnClose.classList.add("glyphicon");
+    btnClose.classList.add("glyphicon-remove");
     var itemName = document.createTextNode(input);
+    btnClose.addEventListener("click", removeParentListItem);
 
     item.appendChild(itemName);
-    item.appendChild(btnClose);
     list.appendChild(item);
+    btnClose.appendChild(iconClose);
+    item.appendChild(btnClose);
     document.getElementById("newItem").value = "";
 
+}
+
+function removeParentListItem(){
+    var mom = this.parentNode;
+    var grandma = mom.parentNode;
+
+    grandma.removeChild(mom);
 }
